@@ -36,11 +36,11 @@ def register(request):
 				user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
 				user.save();
 				print("user created")
-				return redirect(request,'login')
+				return redirect('login')
 		else:
 			print("password is not maching")
 			return redirect('register')
-		return redirect('/')
+		return redirect(reverse('/'))
 	else:
 		return render(request, 'getstarted.html',{'linkg1s':'http://127.0.0.1:8000/login'})
 def logout(request):
